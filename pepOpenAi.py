@@ -1,7 +1,7 @@
 # Need the following imports
 
 import openai
-import config
+import needed_vars
 import csv
 import re
 import nltk
