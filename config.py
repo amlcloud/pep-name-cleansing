@@ -4,3 +4,4 @@ import openai
 
 openai.api_key = "insert api key here"
 path = "insert path here"
+repo_path = "insert repo path here"
