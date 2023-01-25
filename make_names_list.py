@@ -1,5 +1,6 @@
 from names_dataset import NameDataset
 from needed_vars import repo_path
+import time
 
 def create_names_txt():
     nd = NameDataset()
@@ -20,4 +21,11 @@ def create_names_txt():
             names.append(name)
     
     # Then join all the names together and write it in a string
-    with open(f'{repo_path}/names_list.txt'):
+    with open(f'{repo_path}/names_list.txt', 'w', encoding="utf-8") as fw:
+        fw.write(";".join(names))
+
+if __name__ == "__main__":
+    st = time.time()
+    create_names_txt()
+    et = time.time()
+    print(f'Total Time Taken: {st-et}')
