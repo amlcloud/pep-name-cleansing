@@ -2,11 +2,12 @@
 
 import openai
 import needed_vars
+from needed_vars import repo_path
 import csv
 import re
-import nltk
-from nltk import ne_chunk, pos_tag, word_tokenize
-from nltk.tree import Tree
+# import nltk
+# from nltk import ne_chunk, pos_tag, word_tokenize
+# from nltk.tree import Tree
 from time import sleep
 import logging
 from country_list import countries_for_language
@@ -15,13 +16,16 @@ from names_dataset import NameDataset
 class PepOpenAi:
 
     # TODO: Add variables that you might need
-    def __init__(self, filtered_countries=None):
+    def __init__(self):
         self.names = []
         self.data = "Name;Date of Birth;Country;Current Position\n"
         self.logger = logging.getLogger('ftpuploader')
-        self.countries = [item[1] for item in countries_for_language('en')]
-        self.nd = NameDataset()
-        self.nameCountries = filtered_countries
+        # self.countries = [item[1] for item in countries_for_language('en')]
+        # self.nd = NameDataset()
+        with open(f'{repo_path}/names_list.txt', encoding='utf-8') as fp:
+            self.namesList = fp.readlines()[0].split(";")
+            # print(self.namesList)
+        # self.nameCountries = filtered_countries
         return
 
     def getNames(self, url):
@@ -94,27 +98,8 @@ class PepOpenAi:
 
         # Here we check if we want to filter the names to anything,
         # otherwise we really don't know and look at every country for a name match
-        if self.nameCountries:
-            codes = self.nameCountries
-        else:
-            codes = [item.alpha_2 for item in self.nd.get_country_codes()]
-
-        first_names = []
-        last_names = []
-
-        for country_code in codes:
-            male_first = self.nd.get_top_names(1000000, True, country_code)[country_code]['M']
-            female_first = self.nd.get_top_names(1000000, True, country_code)[country_code]['F']
-            last = self.nd.get_top_names(1000000, False, country_code)[country_code]
-
-            for name in male_first:
-                first_names.append(name)
-            for name in female_first:
-                first_names.append(name)
-            for name in last:
-                last_names.append(name)
-        
-        # sprint("FIRST NAMES:")
+              
+        # print("FIRST NAMES:")
         # print(first_names)
         # print("LAST NAMES:")
         # print(last_names)
@@ -125,10 +110,10 @@ class PepOpenAi:
                     try:
                         currLast = text.split()[index+1]
                         # if currLast in last_names:
-                        # print("Testing: "+possible_name+' '+currLast)
-                        # print("In last name: "+str(currLast in last_names))
-                        # print("In first name: "+str(currLast in first_names))
-                        if (currLast in last_names) or (currLast in first_names):
+                        print("Testing: "+possible_name+' '+currLast)
+                        print("In last name: "+str(currLast in self.namesList))
+                        print("In first name: "+str(currLast in self.namesList))
+                        if currLast in self.namesList:
                             # print("Returned: "+possible_name+' '+currLast)
                             return possible_name+' '+currLast
                         else:
@@ -142,7 +127,7 @@ class PepOpenAi:
                 for i in range(len(name.split())):
                     poss_name = name.split()[i]
                     # if (poss_name in first_names):
-                    if (poss_name in first_names) or (poss_name in last_names):
+                    if poss_name in self.namesList:
                         # print("Currently Testing this Name: "+poss_name)
                         currName = makeLastName(i, poss_name, name)
                     if currName != None:

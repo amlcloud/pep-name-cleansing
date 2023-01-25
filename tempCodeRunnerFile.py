@@ -1,0 +1,2 @@
+
+        # self.nameCountries = filtered_
