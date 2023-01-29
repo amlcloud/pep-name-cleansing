@@ -2,7 +2,6 @@
 # you want to save files in (should be a folder)
 import openai
 
-openai.api_key = "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"
-path = "C:/Users/kilik/Desktop/AML/SAVED_FILES"
-repo_path = "C:/Users/kilik/Desktop/AML/pep-name-cleansing"
-dumbyVar = None
+openai.api_key = "insert api key here"
+path = "insert saved files path here"
+repo_path = "insert actual repo path here"
