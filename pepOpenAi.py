@@ -5,13 +5,8 @@ import needed_vars
 from needed_vars import repo_path
 import csv
 import re
-# import nltk
-# from nltk import ne_chunk, pos_tag, word_tokenize
-# from nltk.tree import Tree
 from time import sleep
 import logging
-from country_list import countries_for_language
-from names_dataset import NameDataset
 
 class PepOpenAi:
 
@@ -20,16 +15,15 @@ class PepOpenAi:
         self.names = []
         self.data = "Name;Date of Birth;Country;Current Position\n"
         self.logger = logging.getLogger('ftpuploader')
-        # self.countries = [item[1] for item in countries_for_language('en')]
-        # self.nd = NameDataset()
+        self.urlDict = {}
+        self.wordFrequency = {}
         with open(f'{repo_path}/names_list.txt', encoding='utf-8') as fp:
             self.namesList = fp.readlines()[0].split(";")
             # print(self.namesList)
-        # self.nameCountries = filtered_countries
         return
 
     def getNames(self, url):
-        # Promp that will be used to get the list of names of PEPs
+        # Prompt that will be used to get the list of names of PEPs
         textPrompt = "Create a CSV of the given names (without their position) of Politically Exposed Persons (PEPs) in this URL in the format Index, Name: "
         
         try:
@@ -46,12 +40,20 @@ class PepOpenAi:
                 namesQuery = NAME_HEADER + namesQuery
 
             namesQuery = re.sub(", ", ",", namesQuery)
+
+
+            returnNames = list(set([re.sub(",", " ", item[2:]) for item in namesQuery.split("\n")[1:]]))
+
+            # NEW ADDITION: map url to list of names made
+            for name in returnNames:
+                if not name in self.urlDict:
+                    self.urlDict[name] = url
         
             # Now get the names you want to add and return them
-            return [item[2:] for item in namesQuery.split("\n")[1:]]
+            return returnNames
         
         except Exception as e:
-            self.logger.error("Failed to make list "+str(e))
+            self.logger.error("Failed to make list "+repr(e))
             return []
 
     # Just uses getNames() to return the longest possible list
@@ -71,8 +73,8 @@ class PepOpenAi:
                 item = item.strip("\n")
                 if not item in self.names:
                     self.names.append(item)
-            print("Current Iteration: "+str(i))
-            print(self.names)
+            # print("Current Iteration: "+str(i))
+            # print(self.names)
         # Don't know if I need this yet
         # RIGHT NOW: Likely we only start adding names
         # to the class when we are getting longest list of names
@@ -81,6 +83,26 @@ class PepOpenAi:
         # return currResponse
         return
     
+    # Helper Function to make names dictionary
+    # This is used to provide data on what words we want to add
+    # to replace_dict.py
+    def makeWordFreq(self):
+        for name in self.names:
+            for word in name.split():
+                if not word in self.wordFrequency:
+                    self.wordFrequency[word] = 1
+                else:
+                    self.wordFrequency[word] = self.wordFrequency[word] + 1
+        return
+
+    # Helper function to show words frequency dictionary
+    def showWordFreq(self):
+        ranked = sorted(self.wordFrequency.items(), key=lambda x : x[1])
+        for item in ranked:
+            print(f'{item[0]} : {item[1]}')
+        return
+
+
     # This gets a list of URLs and gets the longest
     # List of names of each and puts them in the names attribute
     def getUrlNames(self, urlList, iterations=50):
