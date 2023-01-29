@@ -19,6 +19,7 @@ def makeNamesCheck():
     # Show results of getting words
     namesChecker.namesGen.makeWordFreq()
     namesChecker.namesGen.showWordFreq()
+    namesChecker.namesGen.showWordFreq()
     return
 
 if __name__ == "__main__":
