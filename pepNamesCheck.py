@@ -63,7 +63,7 @@ class PepNamesCheck:
                     # if (poss_name in first_names):
                     if poss_name in self.possibleNames:
                         # print("Currently Testing this Name: "+poss_name)
-                        currName = makeLastName(i, poss_name, name)
+                        currName = makeLastName(i, poss_name, changedName)
                     if currName != None:
                         # print("Appending this name: "+currName)
                         allNames.append(currName)
@@ -113,7 +113,8 @@ class PepNamesCheck:
             newNames.append(addName)
 
             # To prevent rate limit from reaching
-            sleep(5)
+            # ONLY APPLIES FOR GETTING NAMES USING GPT
+            sleep(1)
         
         # Remove duplicates in the list of names present,
         # NOTE: This name generator does not assume names can be from different countries,
@@ -135,6 +136,7 @@ class PepNamesCheck:
         # and ask it to only give the first name and last name
         cleanPrompt = f'Give only the first and last name in the format First Name, Last Name of this string: {name}'
         cleaned = self.namesGen.makeGPTQuery(cleanPrompt)
+        cleaned = re.sub('\n', ' ', cleaned)
         return cleaned
     
     # Writes into a file the data added in the
