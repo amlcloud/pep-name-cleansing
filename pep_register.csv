@@ -1,0 +1,109 @@
+priority,country,org,domain,actual list url,list description url,status,Additional Comments
+,Germany,Members of government (including deputy and assistant ministers),bundesregierung.de,https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett,https://www.bundesregierung.de/breg-en/federal-cabinet,,
+,AU,Prime Minister of Australia,www.pm.gov.au,https://www.pm.gov.au/,https://www.aph.gov.au/Senators_and_Members/Parliamentarian?MPID=R36,,General information about the Australian system of government: https://www.aph.gov.au/About_Parliament/House_of_Representatives/Powers_practice_and_procedure/00_-_Infosheets/Infosheet_20_-_The_Australian_system_of_government
+,AU,Parliament of Australia: The President of the Senate,www.aph.gov.au,https://www.aph.gov.au/Senators_and_Members/Parliamentarian?MPID=112096,https://www.aph.gov.au/Senators_and_Members/Senators/The_President,,
+,AU,Parliament of Australia: Senators,www.aph.gov.au,https://www.aph.gov.au/senate/los,https://www.aph.gov.au/Senators_and_Members,,
+,AU,Parliament of Australia: Members,www.aph.gov.au,https://www.aph.gov.au/Senators_and_Members/Parliamentarian_Search_Results?q=&mem=1&par=-1&gen=0&ps=0,https://www.aph.gov.au/Senators_and_Members,,
+,AU,Parliament of Australia: The Speaker,www.aph.gov.au,https://www.aph.gov.au/Senators_and_Members/Parliamentarian?MPID=53517,https://www.aph.gov.au/Senators_and_Members/Members/The_Speaker,,
+,AU,Cabinet (Senior Ministers),www.pm.gov.au,https://www.pm.gov.au/your-government,https://www.pm.gov.au/your-government,,"With parliamentary government the legislative and executive functions overlap, as the members of the Executive Government—the Ministers—are drawn from the Parliament."
+,AU,Outer Ministry,www.pm.gov.au,https://www.pm.gov.au/your-government,https://www.pm.gov.au/your-government,,
+,AU,Assistant Ministers,www.pm.gov.au,https://www.pm.gov.au/your-government,https://www.pm.gov.au/your-government,,
+,AU,The Governor-General,www.gg.gov.au,https://www.gg.gov.au/,https://www.gg.gov.au/,,
+,AU,Parliamentary Secretaries,www.pm.gc.ca,https://pm.gc.ca/en/parliamentary-secretaries,https://pm.gc.ca/en/parliamentary-secretaries,,
+,AU,High Court of Australia,www.hcourt.gov.au,https://www.hcourt.gov.au/justices/about-the-justices,https://www.hcourt.gov.au/justices/about-the-justices,,More information about the courts: https://www.ag.gov.au/legal-system/courts
+,AU,Federal Court of Australia,www.fedcourt.gov.au,https://www.fedcourt.gov.au/about/judges/current-judges-appointment,https://www.fedcourt.gov.au/about/judges/current-judges-appointment,,
+,AU,Federal Circuit and Family Court of Australia,www.fcfcoa.gov.au,https://www.fcfcoa.gov.au/Judges,https://www.fcfcoa.gov.au/Judges,,
+,AU,Air Force,www.airforce.gov.au,https://www.airforce.gov.au/our-people/our-leaders,https://www.airforce.gov.au/our-people/our-leaders,,Australian Government: Defence https://www.defence.gov.au/about/leadership
+,AU,Royal Australian Navy,www.navy.gov.au,https://www.navy.gov.au/our-people/biographies,https://www.navy.gov.au/our-people/biographies,,
+,AU,Army,www.army.gov.au,https://www.army.gov.au/our-people/army-leadership,https://www.army.gov.au/our-people,,
+,AU,Reserve Bank of Australia,www.rba.gov.au,https://www.rba.gov.au/about-rba/people/,https://www.rba.gov.au/about-rba/people/,,General information: https://www.rba.gov.au/about-rba/
+,AU,Australian Ambassadors and other Representatives,www.dfat.gov.au,https://www.dfat.gov.au/about-us/our-people/homs/australian-ambassadors-and-other-representatives,https://www.dfat.gov.au/about-us/our-people/homs/australian-ambassadors-and-other-representatives,,
+,AU,Australian Lord Mayors,www.lordmayors.org,https://www.lordmayors.org/,https://www.lordmayors.org/,,Click on any city to find out about its mayor (at the bottom of the page)
+,AU,Members of the board of state-owned enterprises (SOE) and SOEs,www.finance.gov.au,,https://www.finance.gov.au/government/government-business-enterprises,,"In Australia the predominant term used for SOEs is government business enterprise (GBE), https://en.wikipedia.org/wiki/State-owned_enterprises_of_Australia"
+,AU,"ASC Pty Ltd, Corporate Goverance",www.transparency.gov.au,https://www.transparency.gov.au/annual-reports/asc-pty-ltd/reporting-year/2019-20-10,https://www.finance.gov.au/government/government-business-enterprises/asc,,https://www.asc.com.au/
+,Japan,The Emperor,www.kunaicho.go.jp,https://www.kunaicho.go.jp/e-about/history/history02.html,https://www.kunaicho.go.jp/eindex.html,,"Political system of Japan: https://japan.kantei.go.jp/constitution_and_government_of_japan/fundamental_e.html, https://web-japan.org/factsheet/en/pdf/e08_governmental.pdf"
+,Japan,The Emperial Family,www.kunaicho.go.jp,https://www.kunaicho.go.jp/e-about/history/history.html,https://www.kunaicho.go.jp/e-about/,,
+,Japan,"The House of Councillors, the National Diet of Japan, members",www.sangiin.go.jp,https://www.sangiin.go.jp/japanese/joho1/kousei/eng/members/index.htm,https://www.sangiin.go.jp/eng/guide/history/index.htm,,
+,Japan,"The House of  Representatives, the National Diet of Japan, members",www.shugiin.go.jp,"Members A_The House of Representatives,Japan (shugiin.go.jp)",https://www.shugiin.go.jp/internet/itdb_english.nsf/html/statics/member/mem_a.htm,,"The link in the column F leads to the list of the members whose names start with the latter A. If you want to see the others, use the Alphabet in the left side of the page. "
+,Japan,The Prime Minister of Japan,japan.kantei.go.jp,https://japan.kantei.go.jp/100_kishida/meibo/index_e.html,https://japan.kantei.go.jp/100_kishida/meibo/daijin/kishida_e.html,,
+,Japan,The Cabinet: List of Ministers,japan.kantei.go.jp,https://japan.kantei.go.jp/100_kishida/meibo/daijin/index_e.html,https://japan.kantei.go.jp/100_kishida/meibo/seimukan/index_e.html,,
+,Japan,The Cabinet: List of State Ministers,japan.kantei.go.jp,https://japan.kantei.go.jp/100_kishida/meibo/fukudaijin/index_e.html,https://japan.kantei.go.jp/100_kishida/meibo/seimukan/index_e.html,,
+,Japan,The Cabinet: List of Parliamentary Vice-Ministers,japan.kantei.go.jp,https://japan.kantei.go.jp/100_kishida/meibo/seimukan/index_e.html,https://japan.kantei.go.jp/100_kishida/meibo/seimukan/index_e.html,,
+,Japan,The Cabinet: List of Special Advisors to the Prime Minister,japan.kantei.go.jp,https://japan.kantei.go.jp/100_kishida/meibo/sourihosakan/index_e.html,https://japan.kantei.go.jp/100_kishida/meibo/seimukan/index_e.html,,
+,Japan,Board of Audit ,www.jbaudit.go.jp,https://www.jbaudit.go.jp/english/jbaudit/commission.html,https://www.jbaudit.go.jp/english/,,
+,Japan,Justices of the Supreme Court,www.courts.go.jp,https://www.courts.go.jp/english/about/justice/index.html,https://www.courts.go.jp/english/about/index.html,,The Japanese Judical system: https://japan.kantei.go.jp/judiciary/0620system.html
+,Japan,"The Bank of Japan, Members of the Policy Board",www.boj.or.jp,https://www.boj.or.jp/en/about/organization/policyboard/index.htm/,https://www.boj.or.jp/en/index.htm/,,
+,Japan,Japanese Ambassadors and other Representatives to the United Nations,www.un.emb-japan.go.jp,https://www.un.emb-japan.go.jp/aboutus/ambassadors_minami.html,https://www.un.emb-japan.go.jp/aboutus/ambassadors_minami.html,,
+,Japan,"Japan: Ambassador, Permanent Representative to the OECD",www.oecd.org,https://www.oecd.org/japan/japan-ambassador.htm,https://www.oecd.org/japan/japan-ambassador.htm,,
+,Japan,"Ministry of Foreign Affairs of Japan, Senior Members",www.mofa.go.jp,https://www.mofa.go.jp/about/hq/list2.html,https://www.mofa.go.jp/about/hq/list2.html,,
+,Japan,Ambassador of Japan to Australia,www.au.emb-japan.go.jp,https://www.au.emb-japan.go.jp/itpr_en/about_ambassador_profile_en.html,https://www.au.emb-japan.go.jp/itprtop_en/index.html,,"Websites of Japanese Embassies, Consulates and Permanent Missions: https://www.mofa.go.jp/about/emb_cons/mofaserv.html (there are many websites, you can click on the one you need; the informtion about Australia is at the top of the page)"
+,Korea,The President of the Republic of Korea,eng.president.go.kr,https://eng.president.go.kr/sub/profile.php,https://eng.president.go.kr/main/,,The Political Structure of the Republic of Korea: https://overseas.mofa.go.kr/no-en/brd/m_21237/view.do?seq=73
+,Korea,The Prime Minister of the Republic of Korea,www.opm.go.kr,https://www.opm.go.kr/en/prime/profile.do,https://www.korea.net/Government/Administration/Cabinet,,
+,Korea,The Cabinet,www.korea.net,https://www.korea.net/Government/Administration/Cabinet,https://www.korea.net/Government/Administration/Cabinet,,The President: https://www.korea.net/Government/Administration/President-Yoon-Suk-Yeol
+,Korea,The National Assembly: the Speaker,korea.assembly.go.kr:447,https://korea.assembly.go.kr:447/cha/int.jsp,https://korea.assembly.go.kr:447/,,
+,Korea,The National Assembly: Deputy Speakers,korea.assembly.go.kr:447,https://korea.assembly.go.kr:447/cha/spro.jsp,https://korea.assembly.go.kr:447/cha/spro.jsp,,
+,Korea,The National Assembly: Members,korea.assembly.go.kr:447,https://korea.assembly.go.kr:447/mem/mem_03.jsp,https://korea.assembly.go.kr:447/mem/mem_01.jsp,,
+,Korea,"The Supreme Court, Chief Justice",eng.scourt.go.kr,https://eng.scourt.go.kr/eng/supreme/chief.jsp,https://eng.scourt.go.kr/eng/supreme/chief.jsp,,About the Courts: https://www.scourt.go.kr/eng/judiciary/organization/courts.jsp . Here you can find the links to other courts' websites.
+,Korea,"The Supreme Court, Justices",eng.scourt.go.kr,https://eng.scourt.go.kr/eng/supreme/justices.jsp,https://eng.scourt.go.kr/eng/supreme/justices.jsp,,
+,Korea,"Bank of Korea, Monetory Policy Members",www.bok.or.kr,https://www.bok.or.kr/eng/main/contents.do?menuNo=400019,https://www.bok.or.kr/eng/main/main.do,,
+,Korea,"Korea: Ambassador, Permanent Representative to the OECD",www.oecd.org,https://www.oecd.org/korea/korea-ambassador.htm,https://www.oecd.org/korea/korea-ambassador.htm,,
+,Korea,Korean Ambassadors and other Representatives to the United Nations,overseas.mofa.go.kr,https://overseas.mofa.go.kr/un-en/wpge/m_4962/contents.do,https://overseas.mofa.go.kr/un-en/index.do,,
+,Korea,Ambassador of the Republic of Korea to Australia,overseas.mofa.go.kr,https://overseas.mofa.go.kr/au-en/wpge/m_3301/contents.do,https://overseas.mofa.go.kr/au-en/index.do,,Websites of Diplomatic Missions: https://www.mofa.go.kr/eng/wpge/m_5756/contents.do
+,China,The State Council. Premier,http://www.gov.cn/,http://english.www.gov.cn/statecouncil/,,,
+,China,The State Council. Ministers,http://www.gov.cn/,http://english.www.gov.cn/statecouncil/202008/12/content_WS5f334b75c6d029c1c26379c3.html,,,
+,China,Ambassadors of China,https://www.fmprc.gov.cn/,https://www.fmprc.gov.cn/mfa_eng/ziliao_665539/wjrw_665549/3607_665555/,,,
+,NZ,The Governor-General,www.govt.nz,https://www.govt.nz/organisations/governor-general/,https://www.govt.nz/browse/engaging-with-government/government-in-new-zealand/,,System of government in New Zealand: https://www.govt.nz/browse/engaging-with-government/government-in-new-zealand/
+,NZ,The Members of Parliament,www.parliament.nz,https://www.parliament.nz/en/mps-and-electorates/members-of-parliament/,https://www.parliament.nz/en/mps-and-electorates/members-of-parliament/,,This is the House of Representatives (where all the MPs sit) and it includes select committees.
+,NZ,The Prime Minister,dpmc.govt.nz,https://dpmc.govt.nz/cabinet/portfolios/prime-minister,https://dpmc.govt.nz/cabinet/portfolios/prime-minister,,
+,NZ,The Ministers,dpmc.govt.nz,https://dpmc.govt.nz/our-business-units/cabinet-office/ministers-and-their-portfolios/ministerial-list,https://dpmc.govt.nz/our-business-units/cabinet-office/ministers-and-their-portfolios/ministerial-list,,Executive Council: https://dpmc.govt.nz/our-business-units/cabinet-office/executive-council
+,NZ,The Judges of Supreme Court,www.courtsofnz.govt.nz,https://www.courtsofnz.govt.nz/the-courts/supreme-court/judges/,https://www.courtsofnz.govt.nz/the-courts/supreme-court/,,"About courts: https://www.justice.govt.nz/courts/, https://www.courtsofnz.govt.nz/the-courts/supreme-court/history"
+,NZ,The Judges of the Court of Appeal,www.courtsofnz.govt.nz,https://www.courtsofnz.govt.nz/the-courts/court-of-appeal/judges/,https://www.courtsofnz.govt.nz/the-courts/court-of-appeal/,,
+,NZ,The Judges of High Court,www.courtsofnz.govt.nz,https://www.courtsofnz.govt.nz/the-courts/high-court/judges/,https://www.courtsofnz.govt.nz/the-courts/high-court/,,"District Court: https://www.districtcourts.govt.nz/, other courts: https://www.courtsofnz.govt.nz/the-courts/other-courts/"
+,NZ,Reserve Bank of New Zealand: the Governor,www.rbnz.govt.nz,https://www.rbnz.govt.nz/about-us/our-people/adrian-orr,https://www.rbnz.govt.nz/about-us/our-people,,
+,NZ,Reserve Bank of New Zealand: Executive leadership team,www.rbnz.govt.nz,https://www.rbnz.govt.nz/about-us/our-people/our-executive-leadership-team,https://www.rbnz.govt.nz/about-us/our-people,,
+,NZ,Reserve Bank of New Zealand: Leadership team,www.rbnz.govt.nz,https://www.rbnz.govt.nz/about-us/our-people/our-leadership-team,https://www.rbnz.govt.nz/about-us/our-people,,
+,NZ,Reserve Bank of New Zealand: Board members,www.rbnz.govt.nz,https://www.rbnz.govt.nz/about-us/our-people/our-board-members,https://www.rbnz.govt.nz/about-us/our-people,,
+,NZ,Reserve Bank of New Zealand: Monetary Policy Committee,www.rbnz.govt.nz,https://www.rbnz.govt.nz/about-us/our-people/monetary-policy-committee,https://www.rbnz.govt.nz/about-us/our-people,,
+,NZ,Defence Force,www.nzdf.mil.nz,https://www.nzdf.mil.nz/nzdf/structure-and-leadership/,https://www.govt.nz/organisations/new-zealand-defence-force/,,NZ Army: https://www.nzdf.mil.nz/army/our-structure/
+,NZ,The heads of New Zealand's overseas missions (including Australia),www.mfat.govt.nz,https://www.mfat.govt.nz/en/about-us/our-people/our-heads-of-mission/,https://www.mfat.govt.nz/en/about-us/our-people/our-heads-of-mission/,,
+,International,Arab Monetary Fund,https://www.amf.org.ae/,https://www.amf.org.ae/en/page/board-governors,,,
+,International,Arab Monetary Fund,https://www.amf.org.ae/,https://www.amf.org.ae/en/page/board-directors,,,
+,International,Arab Monetary Fund,https://www.amf.org.ae/,https://www.amf.org.ae/en/page/organization-structure,,,
+,International,NATO,https://www.nato.int/,https://www.nato.int/cps/en/natohq/topics_49152.htm,,,
+,International,NATO,https://www.nato.int/,https://www.nato.int/cps/en/natohq/topics_50094.htm,,,
+,International,NATO,,can't find more,,,
+,International,SACU,https://sacu.int/,https://sacu.int/category.php?cat=Council%20of%20Ministers,,,
+,International,African Development Bank Group (AfDB),www.afdb.org,https://www.afdb.org/en/about-us/organisational-structure,https://www.afdb.org/en,,"I was able to find the names, but they are written on ""trees"" (charts) in the presentation"
+,International,"African Union (AU), Chairperson",https://au.int/,https://au.int/en/cpau,https://au.int/en/cpau,,Structure: https://au.int/en/assembly
+,International,"African Union (AU), Champion Presidents",https://au.int/,https://au.int/en/champion-presidents,,,
+,International,"African Union (AU), Deputy Chairperson",https://au.int/,https://au.int/en/dcpauc,,,
+,International,"African Union (AU), High Representatives of the AUC Chairperson",https://au.int/,https://au.int/en/high-representatives,,,
+,International,African Union Mission in Somalia (AMISOM),amisom-au.org,couldn't find more,,,
+,International,"African Union Transition Mission in Somalia (ATMIS), Leadership",atmis-au.org,https://atmis-au.org/atmis-leadership/,,,
+,International,"African, Caribbean, and Pacific Group of States (ACP Group)",http://www.acp.int/,http://www.acp.int/content/secretary-general,,,
+,International,Agency for the Prohibition of Nuclear Weapons in Latin America and the Caribbean (OPANAL),www.opanal.org,https://www.opanal.org/en/secretary-general/,,,
+,International,"OPANAL, President of the Council",www.opanal.org,https://www.opanal.org/en/council/,,,
+,International,Alliance of Small Island States (AOSIS),www.aosis.org,https://www.aosis.org/about/chair-of-aosis/,,,
+,International,Andean Community (CAN),www.comunidadandina.org,couldn't find more,,,
+,International,"Arab Bank for Economic Development in Africa (ABEDA), Board of Governors",www.badea.org,https://www.badea.org/board-of-governor.htm,,,
+,International,"Arab Bank for Economic Development in Africa (ABEDA), Board of Directors",www.badea.org,https://www.badea.org/board-of-directors.htm,,,
+,International,"Arab Bank for Economic Development in Africa (ABEDA), Director General",www.badea.org,https://www.badea.org/director-general.htm,,,
+,International,Arab Fund for Economic and Social Development (AFESD),www.arabfund.org,couldn't open the page,,,
+,International,Arab Maghreb Union (AMU),maghrebarabe.org,couldn't find English version,,,
+,International,Nordic Council (NC),www.norden.org,https://www.norden.org/en/nordic-council-members,,,
+,International,World Food Program (WFP),www.wfp.org,https://www.wfp.org/governance-and-leadership,,,
+,International,"World Health Organization (WHO), Director-General",www.who.int,https://www.who.int/director-general,https://www.who.int/about/governance,,
+,International,"World Health Organization (WHO), Regional Directors",www.who.int,https://www.who.int/director-general/regional-directors,,,
+,International,WHO headquarters leadership team,www.who.int,https://www.who.int/director-general/who-headquarters-leadership-teamm,,,
+,International,"Multilateral Investment Guarantee Agency (MIGA), Senior Management",www.miga.org,https://www.miga.org/about/management,,,
+,International,"Multilateral Investment Guarantee Agency (MIGA), Board of Directors",www.miga.org,https://www.miga.org/board-directors,,,
+,International,International Committee of the Red Cross (ICRC),www.icrc.org,https://www.icrc.org/en/office-of-the-president,https://www.icrc.org/en/who-we-are/the-governance,,
+,International,International Committee of the Red Cross (ICRC),www.icrc.org,https://www.icrc.org/en/assembly-council,,,
+,International,International Committee of the Red Cross (ICRC),www.icrc.org,https://www.icrc.org/en/members-international-committee-red-cross,,,
+,International,International Energy Agency (IEA),www.iea.org,https://www.iea.org/about/leadership,,,
+,International,International Chamber of Commerce (ICC),iccwbo.org,https://iccwbo.org/about-us/governance/chairmanship-secretary-general/,https://iccwbo.org/about-us/governance/,,
+,International,International Chamber of Commerce (ICC),iccwbo.org,https://iccwbo.org/about-us/governance/executive-board/,,,
+,International,International Chamber of Commerce (ICC),iccwbo.org,https://iccwbo.org/about-us/governance/the-icc-governing-body-for-dispute-resolution-services//,,,
+,International,International Court of Justice (ICJ),www.icj-cij.org,https://www.icj-cij.org/en/current-members,,,
+,International,International Court of Justice (ICJ),www.icj-cij.org,https://www.icj-cij.org/en/presidency,,,
+,International,International Court of Justice (ICJ),www.icj-cij.org,https://www.icj-cij.org/en/current-judges-ad-hocc,,,
