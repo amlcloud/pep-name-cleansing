@@ -2,8 +2,14 @@
 Extract only the full names (First, Last) of Politically Exposed Persons (PEPs)
 
 ## Table of contents
+*[Approach] (#approach)
 * [Packages](#packages)
 * [Setup](#setup)
+
+## Approach
+1) Run string through the dictionary to filter out words that are guaranteed to not match names (Mr. Mrs., Hon., etc.)
+2) If 2 words, run through names dataset. IF good -> keep name, IF not -> requires manual check
+3) If >2 words, get Chat GPT to filter words, then run through names dataset. IF good -> keep name, IF not -> requires manual check
 	
 ## Technologies
 Project is created with: 
