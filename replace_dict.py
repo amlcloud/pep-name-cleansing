@@ -16,7 +16,8 @@ word_ref = {
     r'\s*Mrs\s+' : "",
     # For these, need to separate cases where
     # title is at start or in the middle of the string
-    r'\d+': "",
+    r'^\d+': "",
+    r'\d+': " ",
     r'^\s*the\s+|^\s*The\s+': "",
     r'\s*the\s+|\s*The\s+' : " ",
     r'^\s*hon\s+|^\s*Hon\s+' : "",
