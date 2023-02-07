@@ -4,16 +4,12 @@
 word_ref = {
     # For now we can assume these titles only occur in the first part
     # of the string
-    r'\s*mr\.\s+': "",
-    r'\s*mr\s+' : "",
-    r'\s*Mr\.\s+' : "",
-    r'\s*Mr\s+' : "",
-    r'\s*ms\.\s+': "",
-    r'\s*ms\s+' : "",
-    r'\s*Ms\.\s+' : "",
-    r'\s*Ms\s+' : "",
-    r'\s*Mrs\.\s+' : "",
-    r'\s*Mrs\s+' : "",
+    r'^\s*mr\.\s+|^\s*mr\s+|^\s*Mr\.\s+|^\s*Mr\s+': "",
+    r'\s*mr\.\s+|\s*mr\s+|\s*Mr\.\s+|\s*Mr\s+': " ",
+    r'^\s*ms\.\s+|^\s*ms\s+|^\s*Ms\.\s+|^\s*Ms\s+': "",
+    r'\s*ms\.\s+|\s*ms\s+|\s*Ms\.\s+|\s*Ms\s+': " ",
+    r'^\s*Mrs\.\s+|^\s*Mrs\s+|^\s*mrs\.\s+|^\s*mrs\s+' : "",
+    r'\s*Mrs\.\s+|\s*Mrs\s+|\s*mrs\.\s+|\s*mrs\s+' : " ",
     # For these, need to separate cases where
     # title is at start or in the middle of the string
     r'^\d+': "",
