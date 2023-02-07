@@ -77,18 +77,23 @@ class PepNamesCheck:
             # First use the wordref dictionary to filter
             # words that would not be part of a name (Mr., Hon., Mrs., etc.)
             refName = self.changeWords(name)
+            print(f'Without Titles: {refName}')
 
             # IF the name is at most 2 words, just run through
             # names dataset to filter the words
-            if len(refName) <= 2:
+            if len(refName.split()) <= 2:
+                print("Using Names Dataset")
                 ndName = self.ndChangeWords(refName)
                 return ndName
             
             # If it is still longer than 2 words, use GPT to
             # filter out the words more then run through names dataset
             else:
+                print("Using GPT to filter words")
                 gptName = self.GPTchangeWords(refName)
-                gptName = self.ndChangeWords(gptName)
+                if len(gptName.split()) > 2:
+                    print("Using Names Dataset to Change the Name")
+                    gptName = self.ndChangeWords(gptName)
                 return gptName
         
         except:
@@ -111,7 +116,7 @@ class PepNamesCheck:
             return None
         
         allNames = []
-        currName = ""
+        currName = None
 
         # Loop through each word and check if word
         # and next word form a first name last name
@@ -125,6 +130,7 @@ class PepNamesCheck:
                 allNames.append(currName)
         
         # Then return the latest occurrence of a name match
+        print(f'Current allNames: {allNames}')
         if allNames:
             return allNames[len(allNames)-1]
         else:
@@ -139,18 +145,38 @@ class PepNamesCheck:
         return name
     
     # GPT cleanses data
+    # NOTE: Trying to extract instead the first names and last names separately
     def GPTchangeWords(self, name):
         # In this case, we give chat GPT a string
         # and ask it to only give the first name and last name
-        cleanPrompt = f'Give only the first and last name in the format First Name, Last Name of this string: {name}'
-        cleaned = self.namesGen.makeGPTQuery(cleanPrompt)
-        cleaned = re.sub('\n', ' ', cleaned)
-        return cleaned
+        firstPrompt = f'Give only the first name in the format [First Name] of this string: {name}'
+        secondPrompt = f'Give only last name in the format [Last Name] of this string: {name}'
+        firstName = ""
+        lastName = ""
+        
+        # Extract the first name
+        while firstName == "":
+            firstName = self.namesGen.makeGPTQuery(firstPrompt)
+            # print(f'Current Name: {cleaned}')
+            firstName = re.sub('\n', ' ', firstName)
+            firstName = re.sub(' ', '', firstName)
+            sleep(1.5)
+        
+        # Extract the last name
+        while lastName == "":
+            lastName = self.namesGen.makeGPTQuery(secondPrompt)
+            lastName = re.sub('\n', '', lastName)
+            lastName = re.sub(' ', '', lastName)
+            sleep(1.5)
+
+        returnName = f'{firstName} {lastName}'
+        returnName = re.sub(r'[^a-zA-Z\s-]', '', returnName)
+        return returnName
     
     # Writes into a file the data added in the
     # namesData attribute of this class
     def writeNameAccuracy(self, path):
-        with open(path, 'w', encoding='utf-8') as fp:
+        with open(path, 'w', encoding='utf-8', newline='') as fp:
             writer = csv.writer(fp)
             for row in self.namesData:
                 writer.writerow(row.split(";"))
