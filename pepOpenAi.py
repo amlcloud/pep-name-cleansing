@@ -285,7 +285,7 @@ class PepOpenAi:
             return ""
     
     def savePepCsv(self, path):
-        with open(path, 'w') as f:
+        with open(path, 'w', newline='') as f:
             writer = csv.writer(f)
             # First extract each row of the data
             dataList = self.data.split("\n")
