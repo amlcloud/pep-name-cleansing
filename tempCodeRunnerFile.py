@@ -1,2 +1,1 @@
-
-    namesChecker.makeUrlList(f'{repo_path}/pep_register.csv')
+"https://www.mfat.govt.nz/en/about-us/our-people/our-heads-of-mission/"

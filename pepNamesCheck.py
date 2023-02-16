@@ -6,39 +6,106 @@ import pandas as pd
 from replace_dict import word_ref
 import re
 from time import sleep
+from selenium import webdriver
+import chromedriver_binary
+from selenium.webdriver.common.by import By
 
 # NAME FIX: Take one name
 # BATCH FIX: Supply list of names (csv)/array -> csv file/array, String -> String, array of json objects -> array of json objects
 # JSON object : { in, out }
 
-class PepNamesCheck:
+class PepNamesCheck(PepOpenAi):
     def __init__(self):
-        self.namesGen = PepOpenAi()
+        PepOpenAi.__init__(self)
+        # self.namesGen = PepOpenAi()
         # CSV Format of the Names Data, including the link they were taken from
         # self.namesData = ["Name;Chosen Name;OpenAi Possible Names;URL"]
         # self.namesData = ["Name;Chosen Name;OpenAi Possible Names;URL;GPT Chosen Name"]
         self.namesData = ['Name;Chosen Name;URL']
         self.logger = logging.getLogger('ftpuploader')
         self.urls = []
+        self.scrapeDict = {}
         # Extract all the possible names included in the repository
         with open(f'{repo_path}/names_list.txt', encoding='utf-8') as fp:
             self.possibleNames = fp.readlines()[0].split(";")
         return
     
+    def getNamesWebScrape(self, url):
+        webQuery_1 = 'Please list the names of the people from this text: '
+        webQuery_2 = 'Please list the names of Politically Exposed Persons (PEPs) from this text: '
+        namePrompt = 'Check if the following string is a name and answer in Yes/No: '
+        # csv_query = "Create a CSV of the given names (without their position) of Politically Exposed Persons (PEPs) in this URL in the format Index, Name: "
+        csv_query = "Create a CSV of the names in this URL in the format Index, Name: "
+        tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'ul']
+        # tags = ['p']
+        text = []
+        namesList = []
+        
+        # First extract the text from the website
+        try:
+            driver = webdriver.Chrome()
+            driver.get(url)
+            for sym in tags:
+                # print(f'Curr Tag {sym}')
+                currSym = driver.find_elements(By.TAG_NAME, sym)
+                for element in currSym:
+                    # text = text+ element.text.strip('\n ') + '\n'
+                    # print(element.get_attribute("textContent").strip('\n ') )
+                    text.append(element.get_attribute("textContent").strip('\n \t'))
+            driver.close()
+        # When you can't even extract from the website
+        # just return nothing
+        except Exception as e:
+            self.logger.error(repr(e))
+            return text
+        
+        # NOTE: Trying to check if we can filter names out using GPT
+        for item in text:
+            # Use GPT to check if the string is a name
+            item = re.sub(r'\n+|\t+', '',item)
+            try:
+                print(f'Current Item: {item}')
+                answer = self.makeGPTQuery('Check if the following string is a name and answer in Yes/No: '+item)
+                answer = re.findall(r'Yes|yes|No|no', answer)[0]
+                print(f'Answer: {answer}')
+                if answer.lower() == 'yes':
+                    namesList.append(item)
+                self.scrapeDict[item] = answer.lower()
+            except Exception as e:
+                print(repr(e))
+                self.scrapeDict[item] = 'error'
+            sleep(2)
+        
+        with open(f'{repo_path}/scrape_test.csv', 'w', encoding='utf-8', newline='') as fp:
+            writer = csv.writer(fp)
+            writer.writerow(['Name', 'Response'])
+            for key in self.scrapeDict:
+                writer.writerow([key, self.scrapeDict[key]])
+
+        
+        # print(text)
+
+        # Then check if you can get the names
+        # if text != '':
+            # return self.makeGPTQuery(csv_query+'\n'+text)
+            # return self.makeGPTQuery(webQuery_1+'\n'+text)
+        return namesList
+
     # All this really does is call the name extraction function
     # from the PepOpenAi class
     def createNameAccuracy(self, urlList, numTimes):
-        self.namesGen.getUrlNames(urlList=urlList, iterations=numTimes)
+        self.getUrlNames(urlList=urlList, iterations=numTimes)
         return
     
     # Helper Functions
     def inputNamesData(self):
-        newNames = []            
-        for name in self.namesGen.names:
+        newNames = []
+        print(self.urlDict)        
+        for name in self.names:
 
             # Change the name immediately
             # changedName = self.changeWords(name)
-
+            print(f'Mapped URL: {self.urlDict[name]}')
             # First just insert the name into the database
             cleansedName = self.namesCleanse(name)
             
@@ -50,7 +117,7 @@ class PepNamesCheck:
 
             # In this case, try the same thing for the URL
             try:
-                addData = f'{name};{cleansedName};{self.namesGen.urlDict[name]}'
+                addData = f'{name};{cleansedName};{self.urlDict[name]}'
             except Exception as e:
                 self.logger.error(f'Failed to find the url of {name} due to: {repr(e)}')
                 addData = f'{name};{cleansedName};Link not found'
@@ -67,7 +134,7 @@ class PepNamesCheck:
         # Remove duplicates in the list of names present,
         # NOTE: This name generator does not assume names can be from different countries,
         # since ChatGPT may not know how to differentiate between PEPs with the same name
-        self.namesGen.names = list(set(newNames))
+        self.names = list(set(newNames))
         # self.names = list(set(self.names))
         return
     
@@ -156,7 +223,7 @@ class PepNamesCheck:
         
         # Extract the first name
         while firstName == "":
-            firstName = self.namesGen.makeGPTQuery(firstPrompt)
+            firstName = self.makeGPTQuery(firstPrompt)
             # print(f'Current Name: {cleaned}')
             firstName = re.sub('\n', ' ', firstName)
             firstName = re.sub(' ', '', firstName)
@@ -164,7 +231,7 @@ class PepNamesCheck:
         
         # Extract the last name
         while lastName == "":
-            lastName = self.namesGen.makeGPTQuery(secondPrompt)
+            lastName = self.makeGPTQuery(secondPrompt)
             lastName = re.sub('\n', '', lastName)
             lastName = re.sub(' ', '', lastName)
             sleep(1.5)

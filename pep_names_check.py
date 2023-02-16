@@ -2,6 +2,7 @@ from pepNamesCheck import PepNamesCheck
 import time
 from needed_vars import repo_path
 import pandas as pd
+import selenium
 
 dfUrls = pd.read_csv(f'{repo_path}/pep_register.csv')
 
@@ -21,27 +22,40 @@ url_list = [
     "https://iccwbo.org/about-us/governance/executive-board/"
     ]
 
+url = "https://www.airforce.gov.au/about-us/"
+# url = "https://japan.kantei.go.jp/100_kishida/meibo/sourihosakan/index_e.html"
+# url = "https://korea.assembly.go.kr:447/cha/spro.jsp"
+# url = "https://www.mfat.govt.nz/en/about-us/our-people/our-heads-of-mission/"
+
 # Use this to filter the countries present in the csv
-url_list = list(dfUrls[dfUrls['country'] == 'International']['actual list url'])
-url_list = [item for item in url_list if item == item]
-print(url_list)
+# url_list = list(dfUrls[dfUrls['country'] == 'International']['actual list url'])
+# url_list = [item for item in url_list if item == item]
+# print(url_list)
 
 # Just runs all the functions made in the PepOpenAi and PepNamesCheck classes
 def makeNamesCheck():
     namesChecker = PepNamesCheck()
+    namesChecker.getNamesV2(url)
+    # names = namesChecker.getNames(url)
+    # names = namesChecker.getNamesWebScrape(url)
+    # print(names)
+    # print(namesChecker.namesList)
+    # print(f'NamesList Length: {len(names)}')
+    # print(f'Dictionary Length: {len(namesChecker.scrapeDict)}')
     # namesChecker.makeUrlList(f'{repo_path}/pep_register.csv')
     # namesChecker.createNameAccuracy(namesChecker.urls, 1)
-    namesChecker.createNameAccuracy(url_list, 1)
+    # namesChecker.createNameAccuracy(url_list, 1)
+    # namesChecker.namesGen.makeNamesUrlDict()
     # namesChecker.changeWords()
-    namesChecker.inputNamesData()
-    namesChecker.writeNameAccuracy(f'{repo_path}/names_accuracy.csv')
-    print(f'Names Length: {len(namesChecker.namesData)-1}')
-    namesChecker.showURLSPresent(f'{repo_path}/names_accuracy.csv')
+    # namesChecker.inputNamesData()
+    # namesChecker.writeNameAccuracy(f'{repo_path}/names_accuracy.csv')
+    # print(f'Names Length: {len(namesChecker.namesData)-1}')
+    # namesChecker.showURLSPresent(f'{repo_path}/names_accuracy.csv')
     # Show results of getting words
     # namesChecker.namesGen.makeWordFreq()
     # namesChecker.namesGen.showWordFreq()
     # namesChecker.namesGen.showWordFreq()
-    print(set(list(dfUrls['country'])))
+    # print(set(list(dfUrls['country'])))
     return
 
 if __name__ == "__main__":

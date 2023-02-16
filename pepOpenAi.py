@@ -7,6 +7,13 @@ import csv
 import re
 from time import sleep
 import logging
+# from bs4 import BeautifulSoup
+# import urllib.request
+# from urllib.parse import urlparse
+from selenium import webdriver
+import chromedriver_binary
+from selenium.webdriver.common.by import By
+import pandas as pd
 
 class PepOpenAi:
 
@@ -20,7 +27,27 @@ class PepOpenAi:
         with open(f'{repo_path}/names_list.txt', encoding='utf-8') as fp:
             self.namesList = fp.readlines()[0].split(";")
             # print(self.namesList)
+        # Need this to more easily extract needed information
+        self.register = pd.read_csv(f'{repo_path}/pep_register.csv')
         return
+
+    # Based on the adjustments made my Serge
+    def getNamesV2(self, url):
+        pepTitle = self.register.iloc[14]['org']
+        pepCountry = self.register.iloc[14]['country']
+        pepTitle = self.register.iloc[3]['org']
+        if pepCountry == 'AU':
+            pepCountry = 'Australia'
+        prompt = "Give me the real current members of the Australian airforce leadership team."
+        prompt = 'List Air Marshals of the Australian Airforce.'
+        # prompt = f'Give me the real members of {pepTitle} from {pepCountry}.'
+        print(f'PROMPT: {prompt}')
+        names = self.makeGPTQuery(prompt)
+        # names = self.makeGPTQuery(prompt)
+        # print(self.register.columns)
+        print(names)
+        return names
+        # return names.split('\n')
 
     def getNames(self, url):
         # Prompt that will be used to get the list of names of PEPs
@@ -29,6 +56,8 @@ class PepOpenAi:
         try:
             # Extract the names 
             namesQuery = self.makeGPTQuery(textPrompt+url)
+            print(namesQuery)
+            return
         
             # Need to format the csv file so that everything looks clean
             STARTING_CHAR = '1'
@@ -43,6 +72,9 @@ class PepOpenAi:
 
 
             returnNames = list(set([re.sub(",", " ", item[2:]) for item in namesQuery.split("\n")[1:]]))
+            returnNames = [name.strip(',') for name in returnNames]
+            returnNames = [name.strip(' ') for name in returnNames]
+            returnNames = [name.strip('\n') for name in returnNames]
 
             # NEW ADDITION: map url to list of names made
             for name in returnNames:
@@ -55,6 +87,14 @@ class PepOpenAi:
         except Exception as e:
             self.logger.error("Failed to make list "+repr(e))
             return []
+    
+    def webScrapeNamesList(self, url, iterations=50):
+        for i in range(iterations):
+            currResponse = self.getNamesWebScrape(url)
+            for item in currResponse:
+                if not item in self.names:
+                    self.names.append(item)
+        return
 
     # Just uses getNames() to return the longest possible list
     # created from the query
@@ -68,9 +108,9 @@ class PepOpenAi:
             for item in currResponse:
                 # print("Item: "+item)
                 # item = item.strip(',').upper()
-                item = item.strip(',')
-                item = item.strip(' ')
-                item = item.strip("\n")
+                # item = item.strip(',')
+                # item = item.strip(' ')
+                # item = item.strip("\n")
                 if not item in self.names:
                     self.names.append(item)
             # print("Current Iteration: "+str(i))
@@ -268,16 +308,14 @@ class PepOpenAi:
             query = openai.Completion.create(
                 model="text-davinci-002",
                 prompt= currPrompt,
-                temperature=0.7,
+                temperature=0,
                 max_tokens=700,
                 top_p=1.0,
                 frequency_penalty=0.0,
                 presence_penalty=0.0
             )
-
-            currResponse = query['choices'][0]['text']
-            currResponse = currResponse.strip('\n')
-            currResponse = currResponse.strip() 
+            # currResponse = [item['text'].strip('\n ') for item in query['choices']]
+            currResponse = query['choices'][0]['text'].strip('\n ')
             return currResponse
 
         except Exception as e:
