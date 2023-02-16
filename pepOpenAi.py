@@ -57,7 +57,7 @@ class PepOpenAi:
             # Extract the names 
             namesQuery = self.makeGPTQuery(textPrompt+url)
             print(namesQuery)
-            return
+            # return
         
             # Need to format the csv file so that everything looks clean
             STARTING_CHAR = '1'
